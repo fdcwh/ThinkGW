@@ -1,0 +1,29 @@
+body:before{content:"";background-color:rgba(0, 0, 0, .2);position:fixed;top:0;left:0;right:0;bottom:0;}
+input::-webkit-input-placeholder{color:#a6aebf;}
+input::-moz-placeholder{ /* Mozilla Firefox 19+ */ color:#a6aebf;}
+input:-moz-placeholder{ /* Mozilla Firefox 4 to 18 */ color:#a6aebf;}
+input:-ms-input-placeholder{ /* Internet Explorer 10-11 */ color:#a6aebf;}
+input:-webkit-autofill{ -webkit-box-shadow:0 0 0 1000px white inset !important;}
+.login-wrapper{box-shadow:1px 1px 18px 0px #253959db;border-radius:6px;max-width:440px;margin:0 auto;position:relative;box-sizing:border-box;z-index:2;}
+.login-wrapper .login-head{padding:10px 20px;background-color:#243858 /*#148be4*/;border-radius:6px 6px 0 0;font-size:30px;font-weight:400;font-stretch:normal;letter-spacing:0;color:#fff; line-height:120px;height:120px;text-align:center;overflow:hidden;-webkit-transform:rotate(0);-moz-transform:rotate(0);-ms-transform:rotate(0);-o-transform:rotate(0);transform:rotate(0);}
+.login-wrapper .login-head .bg1{display:inline-block;width:74px;height:74px;background:#fff;opacity:.1;border-radius:0 74px 0 0;position:absolute;left:0;top:80px;}
+.login-wrapper .login-head .bg2{display:inline-block;width:94px;height:94px;background:#fff;opacity:.1;border-radius:50%;position:absolute;right:-16px;top:-16px;}
+.login-wrapper .layui-form{padding:25px 38px;background-color:#fff;border-radius:0 0 6px 6px;box-sizing:border-box}
+.login-wrapper .layui-form .layui-form-item{margin-bottom:25px;position:relative;}
+.login-wrapper .layui-form .layui-form-item:last-child{margin-bottom:0;}
+.login-wrapper .layui-form .layui-form-item .layui-input{height:46px;line-height:46px;border-radius:0px !important;}
+.login-wrapper .layui-input-icon-group .layui-input{padding-left:28px;border:0px;border-bottom:1px #dae1e6 solid}
+.login-wrapper .layui-input-icon-group .layui-icon{width:22px;height:46px;line-height:46px;font-size:20px;color:#909399;position:absolute;left:0;top:0;text-align:center;}
+.login-wrapper .layui-form .layui-form-item.login-captcha-group{}
+.login-wrapper .layui-form .layui-form-item.login-captcha-group .login-captcha{height:44px;cursor:pointer;box-sizing:border-box;border:1px solid #e6e6e6;border-radius:2px !important;position:absolute;right:0;top:0;border:0px; /*border-bottom: 1px #dae1e6 solid;*/}
+.login-wrapper .layui-form .layui-form-item .layui-form-checkbox{margin:0 !important;padding-left:25px;}
+.login-wrapper .layui-form .layui-form-item.login-oauth-group a .layui-icon{font-size:26px;}
+.login-wrapper .layui-form .layui-btn-item{margin-bottom:10px;}
+.forget-password{color:#1890ff;padding-right:10px;float:right}
+.layui-btn{background-color:#1890ff;}
+.login-copyright{color:#253959;padding-bottom:20px;text-align:center;position:relative;z-index:1;}
+@media screen and (min-height:550px){
+	.login-wrapper{margin:-250px auto 0;position:absolute;top:50%;left:0;right:0;width:100%;}
+	.login-copyright{position:absolute;bottom:0;right:0;left:0;}
+}
+.login-wrapper .login-head .logo-text{background-image:-webkit-linear-gradient(60deg, #FFFFFF, #0072ff);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}

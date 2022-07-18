@@ -1,15 +1,71 @@
 <?php
+declare (strict_types=1);
 
 namespace app\admin\controller;
 
-use app\BaseController;
+use app\admin\model\AdminUser as UserModel;
+use app\common\model\Game;
+use think\facade\Console;
+use think\facade\Cookie;
 
-class Index extends BaseController {
+/**
+ * Class Index
+ * @package app\admin\controller
+ */
+class Index extends Admin {
+
+	/**
+	 * @var string[]
+	 */
+	protected $middleware = [
+		'ChkLogin',
+	];
+
+	/**
+	 * @title  index
+	 * @return string
+	 */
 	public function index() {
-		return '<style type="text/css">*{ padding: 0; margin: 0; } div{ padding: 4px 48px;} a{color:#2E5CD5;cursor: pointer;text-decoration: none} a:hover{text-decoration:underline; } body{ background: #fff; font-family: "Century Gothic","Microsoft yahei"; color: #333;font-size:18px;} h1{ font-size: 100px; font-weight: normal; margin-bottom: 12px; } p{ line-height: 1.6em; font-size: 42px }</style><div style="padding: 24px 48px;"> <h1>:) </h1><p> ThinkPHP V' . \think\facade\App::version() . '<br/><span style="font-size:30px;">16载初心不改 - 你值得信赖的PHP框架</span></p><span style="font-size:25px;">[ V6.0 版本由 <a href="https://www.yisu.com/" target="yisu">亿速云</a> 独家赞助发布 ]</span></div><script type="text/javascript" src="https://e.topthink.com/Public/static/client.js"></script><think id="ee9b1aa918103c4fc"></think>';
+		$data['list'] = [];
+		return $this->fetch('console', $data);
 	}
 
-	public function hello($name = 'ThinkPHP6') {
-		return 'hello,' . $name;
+
+	/**
+	 * @title  profile
+	 * @return mixed
+	 */
+	public function profile() {
+		// 保存数据
+		if ($this->request->isPost()) {
+			$data = $this->request->post();
+
+			// 如果没有填写密码，则不更新密码
+			if ($data['password'] == '') {
+				unset($data['password']);
+			}
+
+			$data['update_time'] = time();
+			if (UserModel::update($data, ['id' => getAdmin('uid')])) {
+				\think\facade\Session::clear();
+				\think\facade\Cache::clear();
+				$this->success('编辑成功！', 'close.reload');
+			}
+			$this->error('ERROR:编辑失败');
+		}
+
+		// 获取数据
+		$info = UserModel::where('id', getAdmin('uid'))->field('password', true)->find()->toArray();
+		$data = $info;
+		return $this->fetch('user_form', $data);
+
+	}
+
+	/**
+	 * @title clear
+	 */
+	public function clear() {
+		Console::call('clear', ['admin']);
+		return $this->success('清除缓存成功', (string)'reload');
 	}
 }

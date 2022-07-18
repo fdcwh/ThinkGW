@@ -1,0 +1,35 @@
+{extend name="common/_layout" /}
+{block name="main"}
+<div class="main">
+	<div class="layui-card layui-panel">
+		<div class="layui-card-body">
+			<form lay-filter="_form" action="" class="layui-form _form">
+				<div class="layui-form-item">
+					<label class="layui-form-label">登录密码</label>
+					<div class="layui-input-block">
+						<input type="text" name="password" lay-verify="password" value="{$info.password|default=''}" autocomplete="off" placeholder="请输入登录密码" class="layui-input">
+					</div>
+				</div>
+				<div class="layui-form-item">
+					<div class="layui-input-block">
+						<button type="button" class="layui-btn" lay-submit="" lay-filter="_form">立即提交</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+{/block}
+{block name="script"}
+<script>
+	layui.use(['table', 'form'], function () {
+		let $    = layui.jquery,
+		    form = layui.form;
+		form.on('submit(_form)', function (data) {
+			console.log(data.field)
+			adm.httpPost('{:url("")}', data.field);
+			return false;
+		});
+	});
+</script>
+{/block}
