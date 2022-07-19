@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>{$Think.config.system.admin_title}</title>
+	<meta name="renderer" content="webkit|ie-comp|ie-stand">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width,user-scalable=yes, minimum-scale=0.4, initial-scale=0.8"/>
+	<meta http-equiv="Cache-Control" content="no-siteapp"/>
+	{css href="/static/admin/css/base.css" /}
+	{js href="/static/admin/js/jquery.min.js" /}
+	{js href="/static/layui/layui.js" /}
+	{js href="/static/admin/js/admin.js" /}
+	<!-- 让IE8/9支持媒体查询，从而兼容栅格 -->
+	<!--[if lt IE 9]>
+	<script src="https://cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>
+	<script src="https://cdn.staticfile.org/respond.js/1.4.2/respond.min.js"></script>
+	<![endif]-->
+	<script>
+		const APP_BASE = {};
+	</script>
+</head>
+<body class="layui-layout layui-layout-admin">
+{if ( $_initData._dialog != 1)}
+<div class="layui-header" style="text-align:center">
+	<div class="logo">
+		<a href="">{$Think.config.system.admin_title}</a>
+	</div>
+	{$_initData.top_middle|raw|default=''}
+	<ul class="layui-nav layui-layout-right">
+		<li class="layui-nav-item" title="通知">
+			<a href="javascript:;" id="notice"><i class="layui-icon layui-icon-notice"></i></a>
+		</li>
+		<li class="layui-nav-item" title="清理缓存">
+			<a href="javascript:;" id="cache"><i class="layui-icon layui-icon-fonts-clear"></i></a>
+		</li>
+		<li class="layui-nav-item">
+			<a href="javascript:;">
+				<img src="__ADMIN__/images/user_def.png" class="layui-nav-img">
+				{:session('admin.username')}
+				<i class="layui-icon layui-icon-down layui-nav-more"></i>
+			</a>
+			<dl class="layui-nav-child">
+				<dd><a onclick="adm.open('修改密码','{:url(\'index/profile\')}',600,400)">修改密码</a></dd>
+				<dd><a href="{:url('Login/logout')}">退出</a></dd>
+			</dl>
+		</li>
+		<li class="layui-nav-item" lay-header-event="menuRight" lay-unselect="">
+			<a href="javascript:;">
+				<i class="layui-icon layui-icon-more-vertical"></i>
+			</a>
+		</li>
+	</ul>
+</div>
+{include file='common/_left'}
+{else/}
+<style>
+	.layui-layout-admin .layui-body{left:0;top:0}
+</style>
+{/if}
+<div class="layui-body">
+	{block name="main"}{/block}
+</div>
+{if ( $_initData._dialog != 1)}
+<script>
+	layui.use(['element', 'layer', 'util'], function () {
+		var element = layui.element, layer = layui.layer, util = layui.util, $ = layui.$;
+		
+		//头部事件
+		util.event('lay-header-event', {
+			menuRight: function () {
+				layer.open({
+					type        : 1
+					, title     : '更多'
+					, content   : '<div style="padding: 15px;">处理右侧面板的操作</div>'
+					, area      : ['260px', '100%']
+					, offset    : 'rt' //右上角
+					, anim      : 2
+					, shadeClose: true
+					, scrollbar : false
+				});
+			}
+		});
+	});
+	$('#cache').click(function () {
+		adm.httpGet('{:url("index/clear")}')
+	});
+</script>
+{/if}
+{block name="script"}{/block}
+</body>
+</html>
