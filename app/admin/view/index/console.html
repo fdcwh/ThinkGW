@@ -13,14 +13,15 @@
 		</div>
 		<div class="layui-col-md12">
 			<div class="layui-card">
-				<div class="layui-card-header">比赛列表</div>
+				<div class="layui-card-header">统计</div>
 				<div class="layui-card-body ">
 					<ul class="layui-row layui-col-space10 admin-backlog">
 						{volist name="$list" id="item"}
 						<li class="layui-col-md4 layui-col-xs6">
 							<a href="{:url('toGame',['g_id'=>$item.id])}" class="admin-backlog-body">
 								<p><cite>{$item.title}</cite></p>
-								<div><span>创建时间:{$item.create_time}</span><span style="float:right">{$item.tpl}</span></div>
+								<div><span>创建时间:{$item.create_time}</span><span style="float:right">{$item.tpl}</span>
+								</div>
 							</a>
 						</li>
 						{/volist}

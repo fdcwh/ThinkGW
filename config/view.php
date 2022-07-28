@@ -27,6 +27,5 @@ return [
 	// 是否去除模板文件里面的html空格与换行
 	// 'strip_space'   => false,
 	// 模板输出替换
-	'tpl_replace_string' => [
-	]
+	'tpl_replace_string' => []
 ];

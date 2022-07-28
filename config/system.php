@@ -4,11 +4,11 @@
 // +----------------------------------------------------------------------
 return [
 	// 登陆页面 title
-	'login_head'  => 'ThinkIM',
+	'login_head'  => 'ThinkGW',
 	//
-	'copyright'   => '©版权所有 2021 - ' . date('Y'),
+	'copyright'   => 'ThinkGW © 版权所有 2021 - ' . date('Y'),
 	// 管理中心标题
-	'admin_title' => 'ThinkIM',
+	'admin_title' => 'ThinkGW',
 	// 客户端地址
 	'web_url'     => env('app.web_url', ''),
 ];

@@ -31,13 +31,14 @@ body{width:100%;min-height:100%;background:#f5f9fc;}
 .layui-header .layui-nav-item{line-height:45px;}
 .layui-header .layui-nav-child{top:50px;}
 .layui-nav .layui-nav-item a{cursor:pointer;}
-.layui-layout .layui-side{top:45px;}
+.layui-layout .layui-side{top:45px;width: 80px;}
 
 .layui-layout-admin .page-breadcrumb{-webkit-box-shadow:0 1px 4px rgb(0 21 41 / 8%);box-shadow:0 1px 4px rgb(0 21 41 / 8%);width:100%;z-index:901;position:fixed;top:45px;background-color:#fff;padding-left:175px;height:32px;line-height:32px}
-.layui-layout-admin .layui-body{left:200px;top:45px;padding:10px}
+.layui-layout-admin .layui-body{left:80px;top:45px;padding:10px}
 .layui-layout-admin .main{padding-bottom:35px;}
 .layui-bg-black{background-color:#28333E !important;}
-.layui-nav{background-color:#28333E;}
+.layui-nav{background-color:#28333E;/*width:80px;*/}
+/*.layui-side-scroll{width:80px;}*/
 .layui-nav-tree .layui-nav-item{border-bottom:1px solid #0000001c;}
 .layui-nav-child .sub_dd{padding-left:20px;}
 .admin-backlog .admin-backlog-body{display:block;padding:10px 15px;background-color:#f5f9fc;color:#4a4a4a;border-radius:2px;transition:all .3s;-webkit-transition:all .3s;border:1px #dbd9d999 solid;}

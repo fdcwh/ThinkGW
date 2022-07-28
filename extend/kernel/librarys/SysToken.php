@@ -3,7 +3,7 @@ declare (strict_types=1);
 
 namespace kernel\librarys;
 
-use kernel\exception\ApiException;
+use kernel\exception\TokenException;
 use Exception;
 use Firebase\JWT\BeforeValidException;
 use Firebase\JWT\ExpiredException;
@@ -109,7 +109,7 @@ class SysToken {
 	 */
 	public function decodeToken($token, $key = '') {
 		if (empty($token)) {
-			throw new ApiException(401, '未授权');
+			throw new TokenException(401, '未授权');
 		}
 		try {
 			//
@@ -119,29 +119,29 @@ class SysToken {
 			$data        = (array)$decoded;
 			$data        = (array)$data['data'];
 			if (empty($data['uid']) || empty($data['company_id'])) {
-				throw new ApiException(401, '登陆信息异常！');
+				throw new TokenException(401, '登陆信息异常！');
 			}
 			return $data;
 		} catch (SignatureInvalidException $e) {  //签名不正确
-			throw new ApiException(401, $e->getMessage());
+			throw new TokenException(401, $e->getMessage());
 		} catch (BeforeValidException $e) {
 			// 签名在某个时间点之后才能用
 			// apiAbort($e->getMessage(), 1002);
 		} catch (ExpiredException $e) {
 			// token过期
-			throw new ApiException(401, $e->getMessage());
+			throw new TokenException(401, $e->getMessage());
 
 		} catch (Exception $e) {
 			//其他错误
-			throw new ApiException(401, $e->getMessage());
+			throw new TokenException(401, $e->getMessage());
 		}
-		throw new ApiException(401, 'token 异常');
+		throw new TokenException(401, 'token 异常');
 	}
 
 	/**
 	 * @title  getTokenInfo
 	 * @return array|string
-	 * @throws ApiException
+	 * @throws TokenException
 	 */
 	public function getTokenInfo($f) {
 		$token = $this->getParse();

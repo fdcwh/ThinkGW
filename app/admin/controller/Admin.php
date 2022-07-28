@@ -19,7 +19,6 @@ class Admin extends BaseController {
 	 */
 	protected $middleware = [
 		'ChkLogin',
-		'ChkAuth'
 	];
 
 	/**

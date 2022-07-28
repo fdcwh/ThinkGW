@@ -7,10 +7,10 @@ namespace kernel\exception;
 use Exception;
 
 /**
- * Class SysException
+ * Class TokenException
  * @package kernel\exception
  */
-class SysException extends \RuntimeException {
+class TokenException extends \RuntimeException {
 
 	/**
 	 * @param int            $code

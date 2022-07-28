@@ -4,23 +4,14 @@ declare (strict_types=1);
 namespace app\admin\controller;
 
 use app\admin\model\AdminUser as UserModel;
-use app\common\model\Game;
 use think\facade\Console;
-use think\facade\Cookie;
 
 /**
  * Class Index
  * @package app\admin\controller
  */
 class Index extends Admin {
-
-	/**
-	 * @var string[]
-	 */
-	protected $middleware = [
-		'ChkLogin',
-	];
-
+	
 	/**
 	 * @title  index
 	 * @return string

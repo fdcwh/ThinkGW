@@ -57,8 +57,22 @@ class Init {
 		return [
 			[
 				'id'        => 1,
-				'title'     => '控制台',
+				'title'     => '首页',
 				'url_value' => '/admin/index/index',
+				'icon'      => '',
+				'url_type'  => 0,
+			],
+			[
+				'id'        => 2,
+				'title'     => '对话',
+				'url_value' => '/admin/index/index',
+				'icon'      => '',
+				'url_type'  => 0,
+			],
+			[
+				'id'        => 3,
+				'title'     => '设置',
+				'url_value' => '/admin/Setup/index',
 				'icon'      => '',
 				'url_type'  => 0,
 			]
