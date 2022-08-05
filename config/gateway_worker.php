@@ -26,7 +26,7 @@ return [
 	'registerAddress'       => '127.0.0.1:1236',
 
 	// Gateway配置
-	'name'                  => 'thinkphp',
+	'name'                  => 'thinkGW',
 	'count'                 => 1,
 	'lanIp'                 => '127.0.0.1',
 	'startPort'             => 2000,
@@ -38,8 +38,9 @@ return [
 	// BusinsessWorker配置
 	'businessWorker'        => [
 		'name'         => 'BusinessWorker',
-		'count'        => 1,
-		'eventHandler' => '\think\worker\Events',
+		'count'        => 4,
+		// 'eventHandler' => '\think\worker\Events',
+		'eventHandler' => '\app\common\worker\EventHandler',
 	],
 
 ];
