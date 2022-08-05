@@ -14,6 +14,8 @@ use think\Response;
 class Admin extends BaseController {
 	use Jump;
 
+	protected $currentAct = 1;
+
 	/**
 	 * @var string[]
 	 */
@@ -26,6 +28,8 @@ class Admin extends BaseController {
 	 */
 	public function initialize() {
 		parent::initialize();
+
+		$this->assign('_currentAct', $this->currentAct);
 	}
 
 	/**

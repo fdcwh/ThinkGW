@@ -10,6 +10,8 @@ namespace app\admin\controller;
  */
 class Setup extends Admin {
 
+	protected $currentAct = 3;
+
 	/**
 	 * @title  index
 	 * @return string

@@ -2,19 +2,8 @@
 	<div class="layui-side-scroll">
 		<ul class="layui-nav layui-nav-tree">
 			{volist name="$_initData._leftMenu" id="_menu"}
-			<li class="layui-nav-item  {eq name='$_initData._current_0' value='$_menu.id'} layui-nav-itemed  {/eq}">
-				{empty name="$_menu.child"}
+			<li class="layui-nav-item  {eq name='$_currentAct' value='$_menu.id'} layui-this layui-nav-itemed  {/eq}">
 				<a href="{$_menu.url_value}"><i class="layui-icon {$_menu.icon}"></i> {$_menu.title}</a>
-				{else/}
-				<a class="" href="javascript:;"> <i class="layui-icon {$_menu.icon}"></i> {$_menu.title}</a>
-				<dl class="layui-nav-child">
-					{volist name="$_menu.child" id="_sub_child"}
-					<dd class="sub_dd{eq name='$_initData._current_1' value='$_sub_child.id'} layui-this {/eq}">
-						<a href="{$_sub_child.url_value}"><i class="layui-icon layui-icon-align-left"> </i> {$_sub_child.title}</a>
-					</dd>
-					{/volist}
-				</dl>
-				{/empty}
 			</li>
 			{/volist}
 		</ul>

@@ -11,7 +11,7 @@ use think\facade\Console;
  * @package app\admin\controller
  */
 class Index extends Admin {
-	
+
 	/**
 	 * @title  index
 	 * @return string
