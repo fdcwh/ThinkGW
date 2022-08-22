@@ -6,9 +6,7 @@
 	<link href="/static/chat/css/jquery-sina-emotion.min.css" rel="stylesheet">
 	<link href="/static/chat/css/chat.css" rel="stylesheet">
 	<script type="text/javascript" src="/static/chat/js/jquery-sina-emotion.js"></script>
-	<script type="text/javascript" src="/static/chat/js/swfobject.js"></script>
-	<script type="text/javascript" src="/static/chat/js/web_socket.js"></script>
-<body onload="connect();">
+<body>
 <div class="newWindow ">
 	<div class="window-header">
 		<img src="/static/chat/img/0.png" style="width:40px;height:auto;margin-right:10px;float:left;margin-top:4px;border-radius:2px;" alt="头像">
@@ -46,7 +44,7 @@
 					</div>
 				</form>
 				<p class="toDeveloperP">
-					<a class="toDeveloper" href="https://shang.qq.com/wpa/qunwpa?idkey=" target="_blank">QQ群：244734065提供技术支持</a>
+					<a class="toDeveloper" href="https://qm.qq.com/cgi-bin/qm/qr?k=uyiW8JjDX1hhlSS6GEiCeVlXvDd4qzlZ&jump_from=webapi" target="_blank">QQ群：244734065提供技术支持</a>
 				</p>
 				<span class="send-btn submit-btn-wrap">发送</span>
 			</div>
@@ -69,15 +67,8 @@
 	</div>
 </div>
 <script type="text/javascript">
-	if (typeof console == "undefined") {
-		this.console = {
-			log: function (msg) {
-			}
-		};
-	}
-	WEB_SOCKET_SWF_LOCATION = "/static/chat/swf/WebSocketMain.swf";
-	WEB_SOCKET_DEBUG = true;
 	var ws;
+	connect();
 	
 	function connect() {
 		ws = new WebSocket("ws://0.0.0.0:2348");
