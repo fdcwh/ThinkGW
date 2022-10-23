@@ -58,21 +58,21 @@ class Init {
 			[
 				'id'        => 1,
 				'title'     => '首页',
-				'url_value' => '/admin/index/index',
+				'url_value' => (string)url('Index/index'),
 				'icon'      => '',
 				'url_type'  => 0,
 			],
 			[
 				'id'        => 2,
 				'title'     => '对话',
-				'url_value' => '/admin/index/index',
+				'url_value' => (string)url('Chats/index'),
 				'icon'      => '',
 				'url_type'  => 0,
 			],
 			[
 				'id'        => 3,
 				'title'     => '设置',
-				'url_value' => '/admin/Setup/index',
+				'url_value' => (string)url('Setup/index'),
 				'icon'      => '',
 				'url_type'  => 0,
 			]

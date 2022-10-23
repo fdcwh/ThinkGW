@@ -4,6 +4,7 @@ declare (strict_types=1);
 namespace app\admin\controller;
 
 use app\admin\model\AdminUser as UserModel;
+use think\facade\Cache;
 use think\facade\Console;
 
 /**
@@ -57,6 +58,7 @@ class Index extends Admin {
 	 */
 	public function clear() {
 		Console::call('clear', ['admin']);
+		Cache::clear();
 		return $this->success('清除缓存成功', (string)'reload');
 	}
 }
