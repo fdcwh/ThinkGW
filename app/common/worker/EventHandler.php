@@ -1,5 +1,4 @@
 <?php
-
 namespace app\common\worker;
 
 use GatewayWorker\Lib\Gateway;
